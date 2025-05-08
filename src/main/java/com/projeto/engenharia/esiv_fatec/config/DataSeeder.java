@@ -1,6 +1,5 @@
 package com.projeto.engenharia.esiv_fatec.config;
 
-import com.projeto.engenharia.esiv_fatec.model.Company;
 import com.projeto.engenharia.esiv_fatec.model.User;
 import com.projeto.engenharia.esiv_fatec.repository.CompanyRepository;
 import com.projeto.engenharia.esiv_fatec.repository.UserRepository;
