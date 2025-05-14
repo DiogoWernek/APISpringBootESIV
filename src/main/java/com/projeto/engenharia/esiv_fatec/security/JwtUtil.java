@@ -16,7 +16,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    private final String SECRET_KEY = "CHAVE-GRANDE-E-SEGURA-HAHA";
+    private final String SECRET_KEY = "sua-chave-secreta-aqui-bem-grande-para-ser-segura";
 
     private Key getSignKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());

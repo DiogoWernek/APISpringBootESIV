@@ -2,6 +2,8 @@ package com.projeto.engenharia.esiv_fatec.controller;
 
 import com.projeto.engenharia.esiv_fatec.security.JwtUtil;
 import com.projeto.engenharia.esiv_fatec.dto.AuthRequest;
+import com.projeto.engenharia.esiv_fatec.dto.AuthResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,8 +38,10 @@ public class AuthController {
 
       String token = jwtUtil.generateToken(userDetails);
 
-      return ResponseEntity.ok().body(token);
+      AuthResponse response = new AuthResponse(token, request.getUserName());
 
+      return ResponseEntity.ok().body(response);
+      
     } catch (AuthenticationException e) {
       return ResponseEntity.status(401).body("Usuário ou senha inválidos");
     }
