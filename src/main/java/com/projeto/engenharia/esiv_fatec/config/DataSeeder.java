@@ -20,13 +20,13 @@ public class DataSeeder {
         if (userRepository.count() == 0) {
             User user1 = new User();
             user1.setUserName("admin");
-            user1.setPassword("123456");
+            user1.setPassword("$2a$12$d05DPCHCw1AQbUhCA7sDK.N7T8uHNDqryiXIAtn0Ssv14ZiT/3Y9q");
             userRepository.save(user1);
 
             User user2 = new User();
             user2.setUserName("user");
-            user2.setPassword("password");
+            user2.setPassword("$2a$12$d05DPCHCw1AQbUhCA7sDK.N7T8uHNDqryiXIAtn0Ssv14ZiT/3Y9q");
             userRepository.save(user2);
         }
     }
-}
+}   
