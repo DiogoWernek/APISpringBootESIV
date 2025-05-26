@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.projeto.engenharia.esiv_fatec.model.Company;
 
 @Repository
-public interface CompanyRepository extends JpaRepository<Company, String> {
+public interface CompanyRepository extends JpaRepository<Company, Long> {
 }

@@ -19,7 +19,7 @@ public class CompanyService {
         return companyRepository.findAll();
     }
 
-    public Optional<Company> getCompanyById(String id) {
+    public Optional<Company> getCompanyById(Long id) {
         return companyRepository.findById(id);
     }
 
@@ -31,7 +31,7 @@ public class CompanyService {
         return companyRepository.save(company);
     }
 
-    public void deleteCompany(String id) {
+    public void deleteCompany(Long id) {
         companyRepository.deleteById(id);
     }
 }

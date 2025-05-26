@@ -25,11 +25,11 @@ public class CompanyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Company> getCompanyById(@PathVariable("id") String id) {
+    public ResponseEntity<Company> getCompanyById(@PathVariable("id") Long id) {
         Optional<Company> company = companyService.getCompanyById(id);
         return company.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+                      .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }    
 
     @PostMapping
     public ResponseEntity<Company> createCompany(@RequestBody Company company) {
@@ -42,10 +42,9 @@ public class CompanyController {
     }    
 
     @PutMapping("/{id}")
-    public ResponseEntity<Company> updateCompany(@PathVariable("id") String id, @RequestBody Company company) {
+    public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id, @RequestBody Company company) {
         Optional<Company> existingCompany = companyService.getCompanyById(id);
         if (existingCompany.isPresent()) {
-            
             Company updatedCompany = companyService.updateCompany(company);
             return new ResponseEntity<>(updatedCompany, HttpStatus.OK);
         } else {
@@ -54,13 +53,8 @@ public class CompanyController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCompany(@PathVariable("id") String id) {
-        Optional<Company> company = companyService.getCompanyById(id);
-        if (company.isPresent()) {
-            companyService.deleteCompany(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Void> deleteCompany(@PathVariable("id") Long id) {
+        companyService.deleteCompany(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
