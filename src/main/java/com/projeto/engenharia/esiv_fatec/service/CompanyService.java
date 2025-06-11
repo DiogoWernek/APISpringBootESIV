@@ -5,12 +5,16 @@ import org.springframework.stereotype.Service;
 
 import com.projeto.engenharia.esiv_fatec.model.Company;
 import com.projeto.engenharia.esiv_fatec.repository.CompanyRepository;
+import com.projeto.engenharia.esiv_fatec.repository.CompanyRepositoryService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CompanyService {
+
+    @Autowired
+    private CompanyRepositoryService companyRepositoryService;
 
     @Autowired
     private CompanyRepository companyRepository;
@@ -24,7 +28,7 @@ public class CompanyService {
     }
 
     public Company createCompany(Company company) {
-        return companyRepository.save(company);
+        return companyRepositoryService.createCompany(company); // este envia o e-mail
     }
 
     public Company updateCompany(Company company) {
